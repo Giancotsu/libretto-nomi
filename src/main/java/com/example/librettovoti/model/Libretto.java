@@ -26,4 +26,20 @@ public class Libretto {
             System.out.println(voto);
         });
     }
+
+    public void stampaVoti(int v){
+        voti.forEach(voto -> {
+            if(voto.getVoto()==v) {
+                System.out.println(voto);
+            }
+        });
+    }
+
+    public void stampaVoti(String nomeCorsoDaCercare){
+        voti.forEach(voto -> {
+            if(voto.getNomeCorso().equals(nomeCorsoDaCercare)) {
+                System.out.println(voto);
+            }
+        });
+    }
 }
