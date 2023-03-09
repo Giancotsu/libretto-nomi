@@ -1,11 +1,14 @@
 package com.example.librettovoti;
 
+import com.example.librettovoti.model.Libretto;
+import com.example.librettovoti.model.Voto;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class HelloApplication extends Application {
     @Override
@@ -18,6 +21,12 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        //launch();
+
+        Libretto libretto = new Libretto();
+
+        libretto.add(new Voto("Programmazione 1", 27, LocalDate.of(2018, 10, 25)));
+        libretto.add(new Voto("Analisi 1", 19, LocalDate.of(2018, 10, 26)));
+        libretto.stampaVoti();
     }
 }

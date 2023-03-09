@@ -40,4 +40,13 @@ public class Voto {
     public void setDataEsame(LocalDate dataEsame) {
         this.dataEsame = dataEsame;
     }
+
+    @Override
+    public String toString() {
+        return "Voto{" +
+                "nomeCorso='" + nomeCorso + '\'' +
+                ", voto=" + voto +
+                ", dataEsame=" + dataEsame +
+                '}';
+    }
 }

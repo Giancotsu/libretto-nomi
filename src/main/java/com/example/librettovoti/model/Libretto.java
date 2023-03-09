@@ -7,7 +7,7 @@ public class Libretto {
 
     private List<Voto> voti;
 
-    private Libretto(){
+    public Libretto(){
         this.voti = new ArrayList<>();
     }
 
@@ -19,5 +19,11 @@ public class Libretto {
      */
     public boolean add(Voto voto){
         return this.voti.add(voto);
+    }
+
+    public void stampaVoti(){
+        voti.forEach(voto -> {
+            System.out.println(voto);
+        });
     }
 }
