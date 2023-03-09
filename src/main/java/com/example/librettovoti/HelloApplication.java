@@ -23,10 +23,26 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         //launch();
 
+
+
+         applicationTest();
+
+
+
+
+
+
+    }
+
+    private static void applicationTest() {
         Libretto libretto = new Libretto();
 
         libretto.add(new Voto("Programmazione 1", 27, LocalDate.of(2018, 10, 25)));
         libretto.add(new Voto("Analisi 1", 19, LocalDate.of(2018, 10, 26)));
+
         libretto.stampaVoti();
+
+
+
     }
 }
