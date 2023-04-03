@@ -17,6 +17,12 @@ public class Voto {
         this.dataEsame = dataEsame;
     }
 
+    public Voto(Voto voto){
+        this.nomeCorso = voto.nomeCorso;
+        this.voto = voto.voto;
+        this.dataEsame = voto.dataEsame;
+    }
+
     public String getNomeCorso() {
         return nomeCorso;
     }
