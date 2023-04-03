@@ -51,6 +51,30 @@ public class Application extends javafx.application.Application {
         libretto.stampaVoti(corsoDaCercare);
 
 
+        System.out.println("\nDuplicati?");
+        Voto a1bis = new Voto("Analisi 1", 19, LocalDate.of(2025, 2, 15));
+        Voto a1ter = new Voto("Analisi 1", 30, LocalDate.of(2025, 2, 15));
+
+        System.out.println(a1bis+" è duplicato: "+ libretto.duplicato(a1bis));
+        System.out.println(a1ter+" è duplicato: "+ libretto.duplicato(a1ter)) ;
+
+        System.out.println("\nConflitto?");
+        Voto conf1 = new Voto("Architettura", 26, LocalDate.of(2025, 2, 15));
+        Voto conf2 = new Voto("Architettura", 30, LocalDate.of(2025, 2, 15));
+
+        try {
+            libretto.add(conf1);
+            libretto.add(conf2);
+        }catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println("\nLista di tutti i voti:");
+        libretto.stampaVoti();
+
+        System.out.println("\nLibretto migliorato:");
+        Libretto libMigliorato = libretto.librettoMigliorato();
+        libMigliorato.stampaVoti();
 
     }
 }

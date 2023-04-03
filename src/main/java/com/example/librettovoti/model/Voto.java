@@ -41,6 +41,16 @@ public class Voto {
         this.dataEsame = dataEsame;
     }
 
+    public boolean isDuplicate(Voto altro){
+        return this.nomeCorso.equals(altro.nomeCorso) &&
+                this.voto == altro.getVoto();
+    }
+
+    public boolean isCollision(Voto altro){
+        return this.nomeCorso.equals(altro.nomeCorso) &&
+                this.voto != altro.getVoto();
+    }
+
     @Override
     public String toString() {
         return "Voto{" +

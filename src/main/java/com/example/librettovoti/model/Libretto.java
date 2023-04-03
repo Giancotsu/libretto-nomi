@@ -18,7 +18,11 @@ public class Libretto {
      * @return true
      */
     public boolean add(Voto voto){
-        return this.voti.add(voto);
+        if(!conflitto(voto) && !duplicato(voto)){
+            return this.voti.add(voto);
+        }else{
+            throw new IllegalArgumentException("L'esame " + voto.getNomeCorso() + " risiede già nel libretto.");
+        }
     }
 
     public void stampaVoti(){
@@ -41,5 +45,48 @@ public class Libretto {
                 System.out.println(voto);
             }
         });
+    }
+
+    public boolean duplicato(Voto nuovo) {
+        for(Voto v: this.voti) {
+            if(v.isDuplicate(nuovo))
+            {
+                return true ;
+            }
+        }
+        return false;
+    }
+
+    public boolean conflitto(Voto nuovo){
+        for(Voto v: this.voti){
+            if(v.isCollision(nuovo)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Libretto librettoMigliorato(){
+        Libretto lib = new Libretto();
+        Voto votoMoment;
+        for(Voto v: this.voti) {
+            if(v.getVoto()<18){
+                votoMoment = new Voto(v.getNomeCorso(), v.getVoto(), v.getDataEsame());
+                lib.add(votoMoment);
+            }
+            if(v.getVoto()>=18 && v.getVoto()<24){
+                votoMoment = new Voto(v.getNomeCorso(), v.getVoto()+1, v.getDataEsame());
+                lib.add(votoMoment);
+            }
+            if(v.getVoto()>=24 && v.getVoto()<29){
+                votoMoment = new Voto(v.getNomeCorso(), v.getVoto()+2, v.getDataEsame());
+                lib.add(votoMoment);
+            }
+            if(v.getVoto()>28){
+                votoMoment = new Voto(v.getNomeCorso(), 30, v.getDataEsame());
+                lib.add(votoMoment);
+            }
+        }
+        return lib;
     }
 }
