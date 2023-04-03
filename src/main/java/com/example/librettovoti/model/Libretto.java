@@ -66,6 +66,7 @@ public class Libretto {
         return false;
     }
 
+    /*
     public Libretto librettoMigliorato(){
         Libretto lib = new Libretto();
         Voto votoMoment;
@@ -88,5 +89,30 @@ public class Libretto {
             }
         }
         return lib;
+    }
+     */
+
+    public Libretto librettoMigliorato() {
+        Libretto migliore = new Libretto() ;
+        migliore.voti = new ArrayList<>() ;
+        for(Voto v: this.voti) {
+            migliore.voti.add(v.clone()) ;
+//			migliore.voti.add(new Voto(v)) ;
+        }
+        for(Voto v : migliore.voti ) {
+
+            if(v.getVoto()>28){
+                v.setVoto(30);
+            }
+
+            if(v.getVoto()>=24 && v.getVoto()<=28){
+                v.setVoto(v.getVoto()+2);
+            }
+
+            if(v.getVoto()>=18 && v.getVoto()<24){
+                v.setVoto(v.getVoto()+1);
+            }
+        }
+        return migliore ;
     }
 }
