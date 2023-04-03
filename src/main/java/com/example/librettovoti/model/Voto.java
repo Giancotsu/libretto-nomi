@@ -51,6 +51,11 @@ public class Voto {
                 this.voto != altro.getVoto();
     }
 
+    public Voto clone(){
+
+        return new Voto(this.getNomeCorso(), this.getVoto(), this.getDataEsame());
+    }
+
     @Override
     public String toString() {
         return "Voto{" +
