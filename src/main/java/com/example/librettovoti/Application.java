@@ -76,10 +76,14 @@ public class Application extends javafx.application.Application {
         Libretto libMigliorato = libretto.librettoMigliorato();
         libMigliorato.stampaVoti();
 
-        int votoDaEliminare = 21;
+        int votoDaEliminare = 20;
         System.out.println("\nLibretto senza i voti inferiori a :" + votoDaEliminare);
         libretto.cancellaVotiInferiori(votoDaEliminare);
         libretto.stampaVoti();
+
+        System.out.println("\nLibretto ordinato per nome");
+        libretto.librettoOrdinatoNome().stampaVoti();
+
 
     }
 }

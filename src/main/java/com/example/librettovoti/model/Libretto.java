@@ -1,6 +1,7 @@
 package com.example.librettovoti.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Libretto {
@@ -130,5 +131,15 @@ public class Libretto {
          */
 
         this.voti.removeAll(daCancellare) ;
+    }
+
+    public Libretto librettoOrdinatoNome(){
+
+        Libretto ordinato = new Libretto();
+        ordinato.voti = new ArrayList<>(this.voti);
+
+        Collections.sort(ordinato.voti, new ComparatorByName());
+
+        return ordinato;
     }
 }
