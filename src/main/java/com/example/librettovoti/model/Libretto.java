@@ -115,4 +115,16 @@ public class Libretto {
         }
         return migliore ;
     }
+
+    public void cancellaVotiInferiori(int punti) {
+        List<Voto> daCancellare = new ArrayList<Voto>();
+        for(Voto v: this.voti) {
+            if(v.getVoto()<punti) {
+                daCancellare.add(v) ;
+            }
+        }
+        for(Voto v1: daCancellare) {
+            this.voti.remove(v1) ;
+        }
+    }
 }
