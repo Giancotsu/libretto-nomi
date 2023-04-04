@@ -123,8 +123,12 @@ public class Libretto {
                 daCancellare.add(v) ;
             }
         }
+        /*
         for(Voto v1: daCancellare) {
             this.voti.remove(v1) ;
         }
+         */
+
+        this.voti.removeAll(daCancellare) ;
     }
 }
