@@ -64,11 +64,9 @@ public class Voto {
 
     @Override
     public String toString() {
-        return "Voto{" +
-                "nomeCorso='" + nomeCorso + '\'' +
+        return "nomeCorso='" + nomeCorso + '\'' +
                 ", voto=" + voto +
-                ", dataEsame=" + dataEsame +
-                '}';
+                ", dataEsame=" + dataEsame;
     }
 
 }

@@ -27,10 +27,11 @@ public class Libretto {
         }
     }
 
-    public void stampaVoti(){
+    public List<Voto> stampaVoti(){
         voti.forEach(voto -> {
             System.out.println(voto);
         });
+        return this.voti;
     }
 
     public void stampaVoti(int v){
