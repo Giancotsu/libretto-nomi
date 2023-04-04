@@ -84,6 +84,7 @@ public class Application extends javafx.application.Application {
         System.out.println("\nLibretto ordinato per nome");
         libretto.librettoOrdinatoNome().stampaVoti();
 
-
+        System.out.println("\nLibretto ordinato per voto decrescente");
+        libretto.librettoOrdinatoVotoDec().stampaVoti();
     }
 }
