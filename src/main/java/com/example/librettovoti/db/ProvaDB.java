@@ -16,11 +16,12 @@ public class ProvaDB {
         Connection connection = DriverManager.getConnection(jdbcURL);
 
         ResultSet rs = connection.prepareStatement(query).executeQuery();
+
         System.out.println("Nome Corso"+ " - " + "Voto" + " - " + "Data\n");
         while(rs.next()){
             System.out.println(rs.getString("nome_corso") + " - " + rs.getInt("voto") + " - " + rs.getDate("data"));
         }
 
-
+        connection.close();
     }
 }
