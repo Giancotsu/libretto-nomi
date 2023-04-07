@@ -18,6 +18,7 @@ public class LibrettoController {
 
     public void setModel(Libretto model) {
         this.model = model;
+        txtOutput.setText(this.model.toString());
     }
 
     @FXML
@@ -42,7 +43,7 @@ public class LibrettoController {
     void handleInserisci(ActionEvent event) {
         Voto voto = new Voto(txtNomeCorso.getText(), cmbVoto.getValue(), selDate.getValue());
         model.add(voto);
-        txtOutput.setText(model.stampaVoti().toString());
+        txtOutput.setText(this.model.toString());
     }
 
     @FXML

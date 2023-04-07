@@ -162,6 +162,15 @@ public class Libretto {
 
         return ordinato;
     }
+
+    @Override
+    public String toString() {
+        String txt = "" ;
+        for (Voto v : this.voti) {
+            txt = txt + v.toString()+"\n";
+        }
+        return txt;
+    }
 }
 
 

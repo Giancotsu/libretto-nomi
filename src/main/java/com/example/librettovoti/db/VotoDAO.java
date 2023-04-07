@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,8 @@ public class VotoDAO {
             ArrayList<Voto> voti =  new ArrayList<Voto>();
 
             while(resultSet.next()){
-                Voto votoDB = new Voto(resultSet.getString("nome_corso"), resultSet.getInt("voto"), null);
+                LocalDate date = resultSet.getDate("data").toLocalDate();
+                Voto votoDB = new Voto(resultSet.getString("nome_corso"), resultSet.getInt("voto"), date);
                 voti.add(votoDB);
             }
 
