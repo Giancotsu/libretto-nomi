@@ -2,10 +2,7 @@ package com.example.librettovoti.db;
 
 import com.example.librettovoti.model.Voto;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +11,11 @@ public class VotoDAO {
 
     public List<Voto> getVoti(){
 
+        String query = "SELECT * FROM voto";
+
         try {
             Connection connection = DBConnect.getConnection();
-            String query = "SELECT * FROM voto";
+
 
             PreparedStatement ps = connection.prepareStatement(query);
             ResultSet resultSet = ps.executeQuery();
@@ -28,7 +27,7 @@ public class VotoDAO {
                 Voto votoDB = new Voto(resultSet.getString("nome_corso"), resultSet.getInt("voto"), date);
                 voti.add(votoDB);
             }
-
+            connection.close();
             return voti;
 
         } catch (SQLException e) {
@@ -41,6 +40,32 @@ public class VotoDAO {
     }
 
     public boolean insVoto(Voto voto){
-        return false;
+
+        String sql = "INSERT INTO voto (`nome_corso`, `voto`, `data`) "
+                +"VALUES (?, ?, ?);" ;
+
+        try {
+            Connection connection = DBConnect.getConnection();
+
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setString(1, voto.getNomeCorso());
+            ps.setInt(2, voto.getVoto());
+            ps.setDate(3, Date.valueOf(voto.getDataEsame()));
+
+            ps.executeUpdate();
+
+            connection.close();
+
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+
+
+
     }
 }
