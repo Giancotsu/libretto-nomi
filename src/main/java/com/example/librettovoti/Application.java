@@ -37,6 +37,8 @@ public class Application extends javafx.application.Application {
     private static void applicationTest() {
         Libretto libretto = new Libretto();
 
+        libretto.stampaVoti();
+
         libretto.add(new Voto("Programmazione 1", 27, LocalDate.of(2018, 10, 25)));
         libretto.add(new Voto("Analisi 1", 19, LocalDate.of(2018, 01, 26)));
         libretto.add(new Voto("Fisica 1", 24, LocalDate.of(2019, 12, 10)));

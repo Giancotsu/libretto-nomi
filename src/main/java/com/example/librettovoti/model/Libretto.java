@@ -1,5 +1,7 @@
 package com.example.librettovoti.model;
 
+import com.example.librettovoti.db.VotoDAO;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -10,7 +12,8 @@ public class Libretto {
     private List<Voto> voti;
 
     public Libretto(){
-        this.voti = new ArrayList<>();
+        VotoDAO votoDAO = new VotoDAO();
+        this.voti = votoDAO.getVoti();
     }
 
     /**
